@@ -14,7 +14,7 @@
             padding-bottom: 20px;
         }
     </style>
-    <link rel="stylesheet" href="<?php echo BASEURL; ?>css/style.css">
+    <link rel="stylesheet" href="<?=BASEURL?>css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
 </head>
 <body>
@@ -27,7 +27,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a href="<?php echo BASEURL; ?>index.php" class="navbar-brand">Oficina</a>
+          <a href="<?php echo BASEURL; ?>index.php" class="navbar-brand"><?=PROJECT_NAME?></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">          
@@ -42,6 +42,15 @@
             </li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    Mecânicos <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="<?php echo BASEURL; ?>mecanico">Gerenciar Mecânicos</a></li>
+                    <li><a href="<?php echo BASEURL; ?>mecanico/add.php">Novo Mecânico</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                     Veículos <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
@@ -49,9 +58,18 @@
                     <li><a href="<?php echo BASEURL; ?>veiculos/add.php">Novo Veículo</a></li>
                 </ul>
             </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                Ordem de Serviço <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="<?=BASEURL?>os/add.php">Criar Ordem de Serviço</a></li>
+                <li><a href="<?=BASEURL?>os">Imprimir Ordem de Serviço</a></li>
+              </ul>
+            </li>
           </ul>
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
 
-    <main class="container">
+    <main class="container" style="padding-bottom: 40px">

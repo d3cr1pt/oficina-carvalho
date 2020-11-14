@@ -11,7 +11,7 @@ $customer = null;
  */
 function index() {
 	global $customers;
-	$customers = find_all('customers');
+	$customers = find_all('os');
 }
 
 /**
@@ -32,9 +32,15 @@ function add() {
       date_create('now', new DateTimeZone('America/Sao_Paulo'));
 
     $customer = $_POST['customer'];
-    $customer['modified'] = $customer['created'] = $today->format("Y-m-d H:i:s");
-    
-    save('customers', $customer);
+    $customer['dt_registro'] = $today->format("Y-m-d H:i:s");
+    $customer['services'] = json_encode($_POST['servicos'],JSON_UNESCAPED_UNICODE);
+    $db = open_database();
+    $placa = $customer["'placa'"];
+    $sql = "SELECT id FROM veiculos WHERE placa = '$placa' LIMIT 1;";
+    $query = $db->query($sql);
+    $customer['id_veiculo'] = $query->fetch_assoc()['id'];
+    unset($customer["'id_cliente'"]);
+    save('os', $customer);
     header('location: index.php');
   }
 }
@@ -55,12 +61,12 @@ function edit() {
       $customer = $_POST['customer'];
       $customer['modified'] = $now->format("Y-m-d H:i:s");
 
-      update('customers', $id, $customer);
+      update('os', $id, $customer);
       header('location: index.php');
     } else {
 
       global $customer;
-      $customer = find('customers', $id);
+      $customer = find('os', $id);
     } 
   } else {
     header('location: index.php');
@@ -72,7 +78,7 @@ function edit() {
  */
 function view($id = null) {
   global $customer;
-  $customer = find('customers', $id);
+  $customer = find('os', $id);
 }
 
 /**
@@ -81,7 +87,15 @@ function view($id = null) {
 function delete($id = null) {
 
   global $customer;
-  $customer = remove('customers', $id);
+  $customer = remove('os', $id);
 
   header('location: index.php');
+}
+
+function clientes() {
+  return find('customers');
+}
+
+function mecanico() {
+  return find('mecanico');
 }

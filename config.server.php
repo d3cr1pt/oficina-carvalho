@@ -1,13 +1,13 @@
 <?php
 
 /** O nome do banco de dados*/
-define('DB_NAME', 'oficina');
+define('DB_NAME', 'id15392593_db');
 
 /** Usuário do banco de dados MySQL */
-define('DB_USER', 'root');
+define('DB_USER', 'id15392593_admin');
 
 /** Senha do banco de dados MySQL */
-define('DB_PASSWORD', '');
+define('DB_PASSWORD', 'KeY=9-l{%~O+b3#}');
 
 /** nome do host do MySQL */
 define('DB_HOST', 'localhost');
@@ -18,7 +18,7 @@ if ( !defined('ABSPATH') )
 	
 /** caminho no server para o sistema **/
 if ( !defined('BASEURL') )
-	define('BASEURL', '/oficina-carvalho/');
+	define('BASEURL', '/');
 	
 /** caminho do arquivo de banco de dados **/
 if ( !defined('DBAPI') )

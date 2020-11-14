@@ -1,11 +1,12 @@
 <?php 
   require_once('functions.php'); 
   add();
+  $clientes = clientes();
 ?>
 
 <?php include(HEADER_TEMPLATE); ?>
 
-<h2>Novo Cliente</h2>
+<h2>Novo Veículo</h2>
 
 <form action="add.php" method="post">
   <!-- area de campos do form -->
@@ -15,7 +16,7 @@
       <label for="campo">Cliente</label>
       <select name="customer['id_cliente']" id="" class="form-control">
         <?php foreach($clientes as $cliente) {
-          echo '<option value="'.$cliente['id'].'">'.$cliente['name'].'</option>';
+          echo '<option value="'.$cliente['id'].'">'.$cliente['name'].' - ('.$cliente['cpf_cnpj'].')</option>';
         } ?>
       </select>
     </div>

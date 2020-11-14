@@ -11,7 +11,7 @@ $customer = null;
  */
 function index() {
 	global $customers;
-	$customers = find_all('veiculos');
+	$customers = find_all('mecanico');
 }
 
 /**
@@ -34,7 +34,7 @@ function add() {
     $customer = $_POST['customer'];
     $customer['modified'] = $customer['created'] = $today->format("Y-m-d H:i:s");
     
-    save('veiculos', $customer);
+    save('mecanico', $customer);
     header('location: index.php');
   }
 }
@@ -55,12 +55,12 @@ function edit() {
       $customer = $_POST['customer'];
       $customer['modified'] = $now->format("Y-m-d H:i:s");
 
-      update('veiculos', $id, $customer);
+      update('mecanico', $id, $customer);
       header('location: index.php');
     } else {
 
       global $customer;
-      $customer = find('veiculos', $id);
+      $customer = find('mecanico', $id);
     } 
   } else {
     header('location: index.php');
@@ -72,7 +72,7 @@ function edit() {
  */
 function view($id = null) {
   global $customer;
-  $customer = find('veiculos', $id);
+  $customer = find('mecanico', $id);
 }
 
 /**
@@ -81,11 +81,7 @@ function view($id = null) {
 function delete($id = null) {
 
   global $customer;
-  $customer = remove('veiculos', $id);
+  $customer = remove('mecanico', $id);
 
   header('location: index.php');
-}
-
-function clientes() {
-  return find('customers');
 }

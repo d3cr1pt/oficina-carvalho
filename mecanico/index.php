@@ -11,10 +11,10 @@
 <header>
 	<div class="row">
 		<div class="col-sm-6">
-			<h2>Veículos</h2>
+			<h2>Mecânicos</h2>
 		</div>
 		<div class="col-sm-6 text-right h2">
-	    	<a class="btn btn-primary" href="add.php"><i class="fa fa-plus"></i> Novo Veículo</a>
+	    	<a class="btn btn-primary" href="add.php"><i class="fa fa-plus"></i> Novo Mecânico</a>
 	    	<a class="btn btn-default" href="index.php"><i class="fa fa-refresh"></i> Atualizar</a>
 	    </div>
 	</div>
@@ -34,10 +34,11 @@
 <thead>
 	<tr>
 		<th>ID</th>
-		<th>Marca</th>
-		<th>Modelo</th>
-		<th>Placa</th>
-		<th class="text-left">Opções</th>
+		<th width="30%">Nome</th>
+		<th>CPF/CNPJ</th>
+		<th>Telefone</th>
+		<th>Atualizado em</th>
+		<th>Opções</th>
 	</tr>
 </thead>
 <tbody>
@@ -45,9 +46,10 @@
 <?php foreach ($customers as $customer) : ?>
 	<tr>
 		<td><?php echo $customer['id']; ?></td>
-		<td><?php echo $customer['marca']; ?></td>
-		<td><?php echo $customer['modelo']; ?></td>
-		<td><?php echo $customer['placa']; ?></td>
+		<td><?php echo $customer['name']; ?></td>
+		<td><?php echo $customer['cpf_cnpj']; ?></td>
+		<td><?php echo mask($customer['mobile'],'## #####-####'); ?></td>
+		<td><?php echo $customer['modified']; ?></td>
 		<td class="actions text-right">
 			<a href="view.php?id=<?php echo $customer['id']; ?>" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Visualizar</a>
 			<a href="edit.php?id=<?php echo $customer['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Editar</a>

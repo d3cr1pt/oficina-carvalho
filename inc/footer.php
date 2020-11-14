@@ -1,9 +1,8 @@
 		
 	</main> <!-- /container -->
 
-	<hr>
-	<footer class="container">
-		<p>&copy;2016 - Web Dev Academy</p>
+	<footer class="container" style="position: fixed; bottom: 0; width: 100%;padding-top:10px;background: #eee;">
+		<p style="font-family: monospace" class="text-center"><i class="fa fa-copyright"></i> 2020 - Alberto Trevisan Informática ME</p>
 	</footer>
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
