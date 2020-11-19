@@ -32,7 +32,7 @@ function add() {
       date_create('now', new DateTimeZone('America/Sao_Paulo'));
 
     $customer = $_POST['customer'];
-    //$customer['modified'] = $customer['created'] = $today->format("Y-m-d H:i:s");
+    // $customer['modified'] = $customer['created'] = $today->format("Y-m-d H:i:s");
     
     save('veiculos', $customer);
     header('location: index.php');
@@ -53,7 +53,7 @@ function edit() {
     if (isset($_POST['customer'])) {
 
       $customer = $_POST['customer'];
-      //$customer['modified'] = $now->format("Y-m-d H:i:s");
+      $customer['modified'] = $now->format("Y-m-d H:i:s");
 
       update('veiculos', $id, $customer);
       header('location: index.php');

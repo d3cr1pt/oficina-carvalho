@@ -14,8 +14,22 @@
             padding-bottom: 20px;
         }
     </style>
+    <script>
+      function changeSearch(type) {
+        $("#form").attr("action",`<?=BASEURL?>search/${type}.php`);
+        if(type == "cliente") {
+          $("#search-form").attr("placeholder","Nome");
+          $("#search-holder").html("Cliente");
+        }
+        if(type == "veiculo") {
+          $("#search-form").attr("placeholder","Placa");
+          $("#search-holder").html("Veículo");
+        }
+        $("#search-form").val("");
+      }
+    </script>
     <link rel="stylesheet" href="<?=BASEURL?>css/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?=BASEURL?>vender/font/css/font-awesome.min.css">
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -68,6 +82,23 @@
               </ul>
             </li>
           </ul>
+          <form class="navbar-form navbar-right" role="search" id="form" action="<?=BASEURL?>search/cliente.php" method="GET">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-btn">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="search-holder">Cliente</span><span class="caret"></span></button>
+                  <ul class="dropdown-menu">
+                    <li><a href="#" onclick='changeSearch("cliente")'>Cliente</a></li>
+                    <li><a href="#" onclick='changeSearch("veiculo")'>Veículo</a></li>
+                  </ul>
+                </div><!-- /btn-group -->
+                <input type="text" class="form-control" name="search" placeholder="Nome" aria-describedby="basic-addon1" id="search-form" <?php if(isset($_GET['search'])) { echo 'value="'.$_GET['search'].'"'; }?>>
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="submit" onclick="$('#form').submit()"><i class="fa fa-search"></i></button>
+                </span>
+              </div>
+            </div>
+          </form> 
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
